@@ -4,114 +4,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creatina Hardcore Reload 150g - Loja FitPower</title>
+  <meta name="description" content="Creatina Hardcore Reload 150g Integralmedica - Mais força e performance nos seus treinos.">
+  <meta property="og:title" content="Creatina Hardcore Reload - Loja FitPower">
+  <meta property="og:image" content="https://ihdrteste.github.io/fitteste/creatina-banner.jpg">
+  <meta property="og:url" content="https://ihdrteste.github.io/fitteste/index.html">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css" />
+  <title>Creatina Hardcore Reload 150g - Loja FitPower</title>
 </head>
 <body>
-  <header>
+  <header class="topo">
     <h1>Loja FitPower</h1>
-    <p>Suplementos de verdade, direto da fonte.</p>
+    <p>Suplementos originais com entrega rápida</p>
   </header>
 
-  <main class="container">
-    <section class="banner">
-      <img src="creatina-banner.jpg" alt="Creatina Hardcore Benefícios" />
-    </section>
+  <section class="hero-banner">
+    <div class="hero-text">
+      <h2>Creatina Hardcore</h2>
+      <p>AUMENTO DE FORÇA E MASSA MUSCULAR</p>
+      <a href="#comprar" class="cta-btn">Comprar Agora</a>
+    </div>
+  </section>
 
-    <section class="produto">
-      <div class="imagem-produto">
-        <img src="creatina-produto.jpg" alt="Creatina Integralmedica 150g" />
+  <main class="container">
+    <div class="galeria">
+      <img id="main-img" src="creatina-produto.jpg" alt="Creatina Produto" />
+      <div class="thumbnails">
+        <img src="creatina-produto.jpg" onclick="trocarImagem(this)" alt="thumb1" />
+        <img src="creatina-banner.jpg" onclick="trocarImagem(this)" alt="thumb2" />
       </div>
-      <div class="detalhes-produto">
-        <h2>Creatina Hardcore Reload – 150 g</h2>
-        <p class="preco">
-          <span class="preco-original">R$ 99,99</span>
-          <span class="preco-promocional">R$ 52,24</span>
-        </p>
-        <p><strong>Disponibilidade:</strong> Em estoque</p>
-        <div class="botoes">
-          <button class="comprar" onclick="addToCart()">Adicionar ao carrinho</button>
-        </div>
-        <h3>Descrição</h3>
-        <p>Suplemento ideal para quem busca força, desempenho e recuperação muscular. Pura creatina monohidratada, sem conservantes e livre de glúten.</p>
-        <h3>Características</h3>
-        <ul>
-          <li>100% Creatina Monohidratada</li>
-          <li>Sem glúten</li>
-          <li>Ideal para pré-treino</li>
-          <li>Melhora da performance e resistência</li>
-          <li>Aumento de volume e força muscular</li>
-        </ul>
-      </div>
+    </div>
+
+    <section class="produto-info">
+      <h2>Creatina Hardcore Reload – 150g - Integralmedica</h2>
+      <p class="preco"><span class="preco-original">R$ 99,99</span> <span class="preco-promocional">R$ 52,24</span></p>
+      <p><strong>Disponibilidade:</strong> Em estoque</p>
+      <button id="comprar" class="btn-comprar" onclick="addToCart()">Adicionar ao Carrinho</button>
+
+      <h3>Benefícios</h3>
+      <ul class="beneficios">
+        <li>💪 Aumento de volume e força muscular</li>
+        <li>⚡ Melhora da performance e recuperação</li>
+        <li>🧪 100% Creatina Monohidratada Pura</li>
+        <li>🚫 Sem glúten, sódio ou aditivos</li>
+      </ul>
+
+      <h3>Modo de uso</h3>
+      <p>Misturar 3g em 200ml de água. Consumir 1x ao dia ou conforme orientação profissional.</p>
+
+      <h3>Sobre o produto</h3>
+      <p>Produto original com selo Integralmédica. Ideal para atletas e praticantes de atividade física que buscam melhor desempenho muscular.</p>
     </section>
 
     <aside class="carrinho" id="carrinho">
       <h3>Carrinho</h3>
-      <div id="carrinho-items">Vazio</div>
-      <strong>Total: R$ <span id="total">0,00</span></strong>
-      <a href="checkout.html" class="checkout-btn" id="btnCheckout" style="display:none;">Finalizar Compra</a>
+      <div id="carrinho-items">Seu carrinho está vazio.</div>
+      <p><strong>Total: R$ <span id="total">0,00</span></strong></p>
+      <a href="checkout.html" id="btnCheckout" class="checkout-btn" style="display:none;">Finalizar Compra</a>
     </aside>
 
     <section class="avaliacoes">
       <h2>Avaliações</h2>
-      <p>⭐️⭐️⭐️⭐️⭐️ (4.9/5 com base em 322 avaliações)</p>
-      <blockquote>"Produto excelente! Melhorei meu desempenho nos treinos e ganho de massa visível já nas primeiras semanas!"</blockquote>
-      <blockquote>"Creatina pura de verdade, dissolução rápida e ótimo custo-benefício. Recomendo!"</blockquote>
+      <p>⭐️⭐️⭐️⭐️⭐️ (4.9/5 baseado em 322 avaliações)</p>
+      <blockquote>"Produto excelente! Melhorei meu desempenho nos treinos em 2 semanas."</blockquote>
+      <blockquote>"Ótima qualidade e custo-benefício. Recomendo!"</blockquote>
+    </section>
+
+    <section class="faq">
+      <h2>Dúvidas Frequentes</h2>
+      <details><summary>É creatina pura?</summary><p>Sim, 100% monohidratada sem adição de sódio ou aditivos.</p></details>
+      <details><summary>Tem sabor?</summary><p>Não, é neutra. Ideal para misturar com qualquer bebida.</p></details>
+      <details><summary>Qual o prazo de entrega?</summary><p>De 1 a 4 dias úteis para regiões Sul e Sudeste.</p></details>
     </section>
   </main>
 
   <footer>
-    Loja FitPower © 2025 - Todos os direitos reservados.
+    <p>Loja FitPower © 2025 - Todos os direitos reservados</p>
+    <nav>
+      <a href="#">Política de Privacidade</a> | 
+      <a href="#">Trocas e Devoluções</a> | 
+      <a href="#">Atendimento</a>
+    </nav>
   </footer>
 
   <script>
-    const cart = { items: [], total: 0 };
+    const cart = {{ items: [], total: 0 }};
     const price = 52.24;
-    const name = 'Creatina Hardcore Reload 150 g';
+    const name = 'Creatina Hardcore Reload – 150g';
 
-    function updateCartDisplay() {
+    function updateCartDisplay() {{
       const itemsDiv = document.getElementById('carrinho-items');
       const totalSpan = document.getElementById('total');
       const btnCheckout = document.getElementById('btnCheckout');
-      if (cart.items.length === 0) {
-        itemsDiv.innerHTML = 'Vazio';
+      if (cart.items.length === 0) {{
+        itemsDiv.innerHTML = 'Seu carrinho está vazio.';
         totalSpan.innerText = '0,00';
         btnCheckout.style.display = 'none';
         return;
-      }
+      }}
       itemsDiv.innerHTML = '';
-      cart.items.forEach((it, idx) => {
-        const div = document.createElement('div');
-        div.className = 'carrinho-item';
-        div.innerHTML = `<span>${it.name}</span><span>R$ ${it.price.toFixed(2)}</span><button onclick="removeItem(${idx})">x</button>`;
-        itemsDiv.appendChild(div);
-      });
+      cart.items.forEach((it, idx) => {{
+        itemsDiv.innerHTML += `<div class="carrinho-item"><span>${{it.name}}</span><span>R$ ${{it.price.toFixed(2)}}</span> <button onclick="removeItem(${{idx}})">x</button></div>`;
+      }});
       totalSpan.innerText = cart.total.toFixed(2);
       btnCheckout.style.display = 'block';
       sessionStorage.setItem('cart', JSON.stringify(cart));
-    }
+    }}
 
-    function addToCart() {
-      cart.items.push({ name, price });
+    function addToCart() {{
+      cart.items.push({{ name, price }});
       cart.total += price;
       updateCartDisplay();
-    }
+    }}
 
-    function removeItem(idx) {
+    function removeItem(idx) {{
       cart.total -= cart.items[idx].price;
       cart.items.splice(idx, 1);
       updateCartDisplay();
-    }
+    }}
 
-    window.onload = () => {
+    function trocarImagem(el) {{
+      document.getElementById('main-img').src = el.src;
+    }}
+
+    window.onload = () => {{
       const saved = sessionStorage.getItem('cart');
-      if (saved) {
+      if (saved) {{
         const parsed = JSON.parse(saved);
         cart.items = parsed.items;
         cart.total = parsed.total;
-      }
+      }}
       updateCartDisplay();
-    }
+    }}
   </script>
 </body>
 </html>

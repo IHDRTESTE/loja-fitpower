@@ -4,19 +4,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Checkout - Loja FitPower</title>
+  <meta name="description" content="Finalizar pedido - Loja FitPower">
   <link rel="stylesheet" href="styles.css" />
+  <title>Finalizar Compra - Loja FitPower</title>
 </head>
 <body>
-  <header>
-    <h1>Finalizar Compra</h1>
+  <header class="topo">
+    <h1>Checkout - Loja FitPower</h1>
+    <p>Confirme seu pedido e conclua a compra</p>
   </header>
+
   <main class="container">
-    <div id="resumo"></div>
-    <button class="btn-finalizar" onclick="finalizar()">Pagar e Concluir Pedido</button>
+    <section class="resumo-pedido">
+      <h2>Resumo do Pedido</h2>
+      <div id="resumo"></div>
+    </section>
+
+    <section class="formulario-checkout">
+      <h2>Dados do Cliente</h2>
+      <form onsubmit="finalizar(); return false;">
+        <label>Nome Completo:<br><input type="text" required></label><br><br>
+        <label>Email:<br><input type="email" required></label><br><br>
+        <label>Endereço de Entrega:<br><input type="text" required></label><br><br>
+        <label>Forma de Pagamento:<br>
+          <select required>
+            <option value="">Selecione</option>
+            <option value="pix">PIX</option>
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
+          </select>
+        </label><br><br>
+        <button class="btn-finalizar" type="submit">Confirmar e Pagar</button>
+      </form>
+    </section>
   </main>
+
   <footer>
-    Loja FitPower © 2025
+    <p>Loja FitPower © 2025 - Todos os direitos reservados</p>
+    <nav>
+      <a href="#">Política de Privacidade</a> |
+      <a href="#">Trocas e Devoluções</a> |
+      <a href="#">Atendimento</a>
+    </nav>
   </footer>
 
   <script>
@@ -26,21 +55,22 @@
 
     function renderResumo() {
       const cart = loadCart();
+      const resumoDiv = document.getElementById('resumo');
       if (cart.items.length === 0) {
-        document.getElementById('resumo').innerHTML = '<p>Carrinho vazio.</p>';
+        resumoDiv.innerHTML = '<p>Seu carrinho está vazio.</p>';
         return;
       }
       let html = '<table><tr><th>Produto</th><th>Preço</th></tr>';
-      cart.items.forEach(it => {
-        html += `<tr><td>${it.name}</td><td>R$ ${it.price.toFixed(2)}</td></tr>`;
+      cart.items.forEach(item => {
+        html += `<tr><td>${item.name}</td><td>R$ ${item.price.toFixed(2)}</td></tr>`;
       });
       html += `<tr><td><strong>Total</strong></td><td><strong>R$ ${cart.total.toFixed(2)}</strong></td></tr>`;
       html += '</table>';
-      document.getElementById('resumo').innerHTML = html;
+      resumoDiv.innerHTML = html;
     }
 
     function finalizar() {
-      alert('Pedido realizado com sucesso!');
+      alert('Pedido realizado com sucesso! Você receberá um e-mail com os detalhes.');
       sessionStorage.removeItem('cart');
       window.location = 'index.html';
     }
