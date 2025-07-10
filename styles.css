@@ -19,9 +19,12 @@ header {
   margin: auto;
   padding: 20px;
   background: white;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .produto {
@@ -78,6 +81,7 @@ header {
   padding: 15px;
   border-radius: 5px;
   max-width: 300px;
+  margin-top: 30px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -98,17 +102,6 @@ header {
   border-radius: 5px;
 }
 
-.btn-finalizar {
-  width: 100%;
-  padding: 15px;
-  background: #28a745;
-  color: white;
-  font-size: 1.1em;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 footer {
   text-align: center;
   font-size: 0.9em;
@@ -117,13 +110,9 @@ footer {
   margin-top: 40px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-th, td {
-  border: 1px solid #ddd;
+.avaliacoes blockquote {
+  background: #eee;
   padding: 10px;
+  border-left: 4px solid #d60000;
+  margin: 10px 0;
 }
