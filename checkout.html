@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout - Loja FitPower</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Finalizar Compra</h1>
+  </header>
+  <main class="container">
+    <div id="resumo"></div>
+    <button class="btn-finalizar" onclick="finalizar()">Pagar e Concluir Pedido</button>
+  </main>
+  <footer>
+    Loja FitPower © 2025
+  </footer>
+
+  <script>
+    function loadCart() {
+      return JSON.parse(sessionStorage.getItem('cart')) || { items: [], total: 0 };
+    }
+
+    function renderResumo() {
+      const cart = loadCart();
+      if (cart.items.length === 0) {
+        document.getElementById('resumo').innerHTML = '<p>Carrinho vazio.</p>';
+        return;
+      }
+      let html = '<table><tr><th>Produto</th><th>Preço</th></tr>';
+      cart.items.forEach(it => {
+        html += `<tr><td>${it.name}</td><td>R$ ${it.price.toFixed(2)}</td></tr>`;
+      });
+      html += `<tr><td><strong>Total</strong></td><td><strong>R$ ${cart.total.toFixed(2)}</strong></td></tr>`;
+      html += '</table>';
+      document.getElementById('resumo').innerHTML = html;
+    }
+
+    function finalizar() {
+      alert('Pedido realizado com sucesso!');
+      sessionStorage.removeItem('cart');
+      window.location = 'index.html';
+    }
+
+    window.onload = renderResumo;
+  </script>
+</body>
+</html>

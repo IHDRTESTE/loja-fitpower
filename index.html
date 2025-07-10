@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creatina Hardcore Reload 150g - Loja FitPower</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Loja FitPower</h1>
+    <p>Seu suplemento direto da fonte</p>
+  </header>
+
+  <main class="container">
+    <section class="produto">
+      <div class="imagem-produto">
+        <img src="https://static.centauro.com.br/centauro/product/88459201/imagens/creatina-integralmedica-hardcore-reload-150g-img.jpg" alt="Creatina Integralmedica 150g" />
+      </div>
+      <div class="detalhes-produto">
+        <h2>Creatina Hardcore Reload – 150 g</h2>
+        <p class="preco">
+          <span class="preco-original">R$ 99,99</span>
+          <span class="preco-promocional">R$ 52,24</span>
+        </p>
+        <p><strong>Disponibilidade:</strong> Em estoque</p>
+        <div class="botoes">
+          <button class="comprar" onclick="addToCart()">Adicionar ao carrinho</button>
+        </div>
+        <h3>Descrição</h3>
+        <p>Suplemento ideal para quem busca força, desempenho e recuperação muscular. Pura creatina monohidratada, sem conservantes e livre de glúten.</p>
+        <h3>Características</h3>
+        <ul>
+          <li>100% Creatina Monohidratada</li>
+          <li>Sem glúten</li>
+          <li>Ideal para pré-treino</li>
+          <li>Melhora da performance e resistência</li>
+          <li>Aumento de volume e força muscular</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="carrinho" id="carrinho">
+      <h3>Carrinho</h3>
+      <div id="carrinho-items">Vazio</div>
+      <strong>Total: R$ <span id="total">0,00</span></strong>
+      <a href="checkout.html" class="checkout-btn" id="btnCheckout" style="display:none;">Finalizar Compra</a>
+    </aside>
+  </main>
+
+  <footer>
+    Loja FitPower © 2025 - Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const cart = { items: [], total: 0 };
+    const price = 52.24;
+    const name = 'Creatina Hardcore Reload 150 g';
+
+    function updateCartDisplay() {
+      const itemsDiv = document.getElementById('carrinho-items');
+      const totalSpan = document.getElementById('total');
+      const btnCheckout = document.getElementById('btnCheckout');
+      if (cart.items.length === 0) {
+        itemsDiv.innerHTML = 'Vazio';
+        totalSpan.innerText = '0,00';
+        btnCheckout.style.display = 'none';
+        return;
+      }
+
+      itemsDiv.innerHTML = '';
+      cart.items.forEach((it, idx) => {
+        const div = document.createElement('div');
+        div.className = 'carrinho-item';
+        div.innerHTML = `<span>${it.name}</span><span>R$ ${it.price.toFixed(2)}</span><button onclick="removeItem(${idx})">x</button>`;
+        itemsDiv.appendChild(div);
+      });
+
+      totalSpan.innerText = cart.total.toFixed(2);
+      btnCheckout.style.display = 'block';
+      sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function addToCart() {
+      cart.items.push({ name, price });
+      cart.total += price;
+      updateCartDisplay();
+    }
+
+    function removeItem(idx) {
+      cart.total -= cart.items[idx].price;
+      cart.items.splice(idx, 1);
+      updateCartDisplay();
+    }
+
+    window.onload = () => {
+      const saved = sessionStorage.getItem('cart');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        cart.items = parsed.items;
+        cart.total = parsed.total;
+      }
+      updateCartDisplay();
+    }
+  </script>
+</body>
+</html>
